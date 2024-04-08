@@ -1,4 +1,4 @@
-Andmebaas - 
+Andmebaas - базаданных
 andmebaaside haldussüsteem -
 tabel - 
 rida -ряд
@@ -7,3 +7,5 @@ kirjed - записи
 väljad - поля
 andmed - данные
 väärtused - значения
+-------
+query - päring - запрос
