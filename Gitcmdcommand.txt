@@ -1,0 +1,28 @@
+
+C:\Users\opilane>cd desktop
+
+C:\Users\opilane\Desktop>git config --global user.name "Stanislav Tsugunov"
+
+C:\Users\opilane\Desktop>git config --global user.email "stanislav.tsugunov@gmail.com"
+
+C:\Users\opilane\Desktop>git config --global --list
+user.name=Stanislav Tsugunov
+user.email=stanislav.tsugunov@gmail.com
+
+--------
+kui tekkinud uus fail ja salvestatud, siis on vaja add ja commit
+
+git add .
+C:\Users\opilane\Desktop>git clone https://github.com/TsugunovS/Andmebaasid.git
+Cloning into 'Andmebaasid'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100>git commit -a -m "Põhi abi "% (10/10), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 10 (delta 2), reused 10 (delta 2), pack-reused 0
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (2/2), done.
+
+C:\Users\opilane\Desktop>
+C:\Users\opilane\Desktop>cd Andmebaasid
+
+C:\Users\opilane\Desktop\Andmebaasid>git status
