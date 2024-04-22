@@ -122,3 +122,74 @@ BEGIN
 Select * from film WHERE filmNimetus=@filmNimetus;;
 END;
 EXEC uuendaRezisorFilmis 'Bom Losers', 'Test';
+
+
+
+
+
+--Konjaev ülesanne
+DROP TABLE iphone;
+CREATE TABLE iphone(
+iphoneId int PRIMARY KEY identity(1,1),
+model varchar(50),
+vv_aasta int,
+varv varchar(50),
+malu int);
+select * from iphone;
+insert into iphone (model, vv_aasta, varv, malu) values ('RetroPhone',2000,'Gold',64)
+insert into iphone (model, vv_aasta, varv, malu) values ('iPhone XR',2018,'Red',128)
+insert into iphone (model, vv_aasta, varv, malu) values ('Samsung',2019,'Grey',256)
+insert into iphone (model, vv_aasta, varv, malu) values ('Huawei',2020,'White',512)
+insert into iphone (model, vv_aasta, varv, malu) values ('Xiaomi',2021,'Black',128)
+insert into iphone (model, vv_aasta, varv, malu) values ('Motorola',2022,'Black',256)
+
+
+
+
+
+--leida kirja teel
+CREATE Procedure otsing1iphone
+@tahtt char(1)
+AS
+BEGIN
+	SELECT * from iphone
+	WHERE model LIKE CONCAT(@tahtt, '%');
+END;
+
+EXEC otsing1iphone'M';
+
+
+
+
+
+--kustutada aasta
+DROP Procedure kustutamodell
+CREATE Procedure kustutavvaasta
+@aasta int
+AS
+BEGIN
+	SELECT * FROM iphone;
+	DELETE FROM iphone WHERE vv_aasta=@aasta
+	SELECT * From iphone;
+END;
+
+EXEC kustutavvaasta 2019;
+
+
+
+
+
+--muudab varv ja model
+drop procedure uusmodelljvarvv
+CREATE Procedure uusmodelljvarvv
+@uusvarv varchar(50),
+@uusmodel varchar(50)
+AS
+Begin
+	Select * from iphone Where model=@uusmodel;;
+	UPDATE iphone SET varv=@uusvarv
+	Where model=@uusmodel;
+Select * from iphone Where model=@uusmodel;;
+END;
+
+EXEC uusmodelljvarvv 'Grey', 'iphone15';
