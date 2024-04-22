@@ -105,3 +105,20 @@ AS
 SELECT COUNT(*) AS 'filmide Arv' FROM film;
 
 EXEC FilmideArv;
+
+
+
+
+
+--proceduur mis uuendab  rezisööri andmed filmiNimi järgi
+CREATE Procedure uuendaRezisorFilmis
+@uusrezisoor varchar(50),
+@filmNimetus varchar(50)
+AS
+BEGIN
+	SELECT * FROM film WHERE filmNimetus=@filmNimetus;;
+	UPDATE film SET rezisoor=@uusrezisoor
+	WHERE filmNimetus=@filmNimetus;
+Select * from film WHERE filmNimetus=@filmNimetus;;
+END;
+EXEC uuendaRezisorFilmis 'Bom Losers', 'Test';
