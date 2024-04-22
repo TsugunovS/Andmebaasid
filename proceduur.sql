@@ -59,3 +59,17 @@ insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Nell', 234, 
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Grandview, U.S.A.', 156, 'Malina Snarie', 2012);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Face/Off', 276, 'Linnell Arnecke', 2005);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Terribly Happy (Frygtelig lykkelig)', 206, 'Curtis Hadwin', 2011);
+
+--filmiNimetuse otsing esimese tähe järgi
+DROP Procedure osting1Taht
+CREATE Procedure otsing1Taht
+@taht char(1)
+AS
+Begin
+	SELECT * FROM film
+	--uslovie
+	WHERE filmNimetus LIKE CONCAT(@taht,'%');
+End;
+
+--käivitamine
+EXEC otsing1Taht 'M';
