@@ -60,6 +60,10 @@ insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Grandview, U
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Face/Off', 276, 'Linnell Arnecke', 2005);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Terribly Happy (Frygtelig lykkelig)', 206, 'Curtis Hadwin', 2011);
 
+
+
+
+
 --filmiNimetuse otsing esimese tähe järgi
 DROP Procedure osting1Taht
 CREATE Procedure otsing1Taht
@@ -73,3 +77,19 @@ End;
 
 --käivitamine
 EXEC otsing1Taht 'M';
+
+
+
+
+
+--proceduur mis kustutab sisestatud id järgi
+CREATE Procedure kustutaFilm
+@id int
+AS
+BEGIN
+	SELECT * FROM film;
+	DELETE FROM film WHERE filmId=@id;
+	SELECT * FROM film;
+END;
+
+EXEC kustutaFilm 42;
