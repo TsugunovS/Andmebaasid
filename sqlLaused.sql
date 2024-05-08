@@ -181,17 +181,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
-insert into Department (Id, DepartmentName, Location, DepartmentHead)
-values (1, 'IT', 'London', 'Rick')
-insert into Department (Id, DepartmentName, Location, DepartmentHead)
-values (2, 'Payroll', 'Delhi', 'Ron')
-insert into Department (Id, DepartmentName, Location, DepartmentHead)
-values (3, 'HR', 'New York', 'Christie')
-insert into Department (Id, DepartmentName, Location, DepartmentHead)
-values (4, 'Other Deparment', 'Sydney', 'Cindrella')
-
-select * from Department
+--täitke tabelis olevad andmed Employees
 
 insert into Employees (Id, Name, Gender, Salary, DepartmentId)
 values (1, 'Tom', 'Male', 4000, 1)
