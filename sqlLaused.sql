@@ -346,11 +346,11 @@ declare @Name nvarchar(50)
 execute spGetNameById1 6, @Name output
 print 'Name of the employee = ' + @Name
 
---?
+--tagastab muudatuse algsesse olekusse
 create proc spGetNameById2
 @Id int
 as begin
-	return (select FirstName from Employees where Id = @Id)
+	return (select Name from Employees where Id = @Id)
 end
 
 -- ?
