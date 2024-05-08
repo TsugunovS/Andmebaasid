@@ -333,12 +333,12 @@ declare @TotalEmployees int
 execute spTotalCount2 @TotalEmployees output
 select @TotalEmployees
 
---- ?
+---tagastab töötaja nime
 create proc spGetNameById1
 @Id int,
-@FirstName nvarchar(50) output
+@Name nvarchar(50) output
 as begin
-	select @FirstName = FirstName from employees where Id = @Id
+	select @Name = Name from employees where Id = @Id
 end
 
 --?
