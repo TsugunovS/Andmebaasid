@@ -87,7 +87,7 @@ where Id = 8
 
 --lisab piirangu, et väärtus suurem kui 0 ja väiksem kuni 150
 alter table Person
-add constraint CK_Person_Age check (Age > 0 and Age < 150)
+add constraint CK_Person_Age check (Age > 0 and Age < 100)
 
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
@@ -143,7 +143,7 @@ select top 3 Age, Name from Person
 
 --- näitab esimesed 50% tabelis
 select top 50 percent * from Person
---?
+--sorteeri vanus järgi 
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
