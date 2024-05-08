@@ -341,10 +341,10 @@ as begin
 	select @Name = Name from employees where Id = @Id
 end
 
---?
-declare @FirstName nvarchar(50)
-execute spGetNameById1 6, @FirstName output
-print 'Name of the employee = ' + @FirstName
+--kuvad töötaja nimi alates 6 Id
+declare @Name nvarchar(50)
+execute spGetNameById1 6, @Name output
+print 'Name of the employee = ' + @Name
 
 --?
 create proc spGetNameById2
