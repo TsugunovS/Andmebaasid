@@ -216,12 +216,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---valib v‰‰rtuse Name departmentID tabelist Employees
 select distinct Name, DepartmentId from Employees
 
----?
+---liidab kogu palga Salary kokku
 select sum(cast(Salary as int)) from Employees
----?
+---
 select min(cast(Salary as int)) from Employees
 
 
