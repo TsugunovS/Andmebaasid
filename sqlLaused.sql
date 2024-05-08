@@ -8,6 +8,7 @@
 --git add .
 --git commit -a -m "dl loomine"
 create database LOGITpv22
+drop table Gender;
 
 use LOGITpv22;
 
@@ -54,7 +55,6 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 
 -- vaatame tabeli andmeid
 select * from Person
-
 --- võõrvõtme piirangu maha võtmine
 alter table Person
 drop constraint tblPerson_GenderId_FK
@@ -128,7 +128,7 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--näitab, kelle nimi ei alga W, A, S
 select * from Person where Name like '[^WAS]%'
 --- ?
 select * from Person where (City = 'Gotham' or City = 'New York')
