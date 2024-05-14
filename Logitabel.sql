@@ -42,7 +42,7 @@ select * from autoregistr;
 select * from logitabel;
 
 
---DELETE Triger - triger, mis täidab logi tabeli,
+--DELETE Triger - triger, mis ´kustutab tabelites olevad kirjed,
 CREATE TRIGGER AutoKustutamine
 ON logitabel
 FOR DELETE
@@ -58,9 +58,9 @@ BEGIN
 	FROM deleted;
 END
 
-delete from linnad
-WHERE linnID=4;
-select * from linnad;
-select * from logi;
+delete from autoregistr
+WHERE lid=2;
+select * from autoregistr;
+select * from logitabel;
 
 
