@@ -64,3 +64,25 @@ select * from autoregistr;
 select * from logitabel;
 
 
+--Uendamine triger, mis muudab auto teavet
+CREATE TRIGGER AutoUuendamine
+ON logitabel
+FOR UPDATE
+AS
+BEGIN
+	INSERT INTO autoregistr(kasutaja, aeg, varv, numbrimark, toiming, andmed)
+	SELECT USER,
+			GETDATE(),
+			'Kollane',
+			'333 XXX',
+			'AutoAndmed on uuendatud',
+			concat('vanad: ', deleted.autonimi,
+			'uued: ', inserted.autonimi)
+	FROM deleted INNER JOIN inserted
+	ON deleted.autoID=inserted.autoID;
+END
+
+UPDATE logitabel SET autonimi='Opel'
+WHERE autoID=1;
+select * from logitabel;
+select * from autoregistr;
