@@ -20,6 +20,7 @@ values ('Kia', 2);
 select * from logitabel;
 
 --
+drop TRIGGER AutoLisamine
 CREATE TRIGGER AutoLisamine
 ON logitabel
 FOR INSERT
@@ -28,7 +29,7 @@ BEGIN
 	INSERT INTO autoregistr(kasutaja, aeg, numbrimark, varv, toiming, andmed)
 	SELECT USER,
 			GETDATE(),
-			'548 JKF',
+			'´548 JKF',
 			'Must',
 			'Auto on lisatud',
 			inserted.autonimi
@@ -36,8 +37,30 @@ BEGIN
 END
 
 INSERT INTO logitabel(autonimi, omanikud)
-values ('BMW', 7);
+values ('Skoda', 2);
 select * from autoregistr;
 select * from logitabel;
+
+
+--DELETE Triger - triger, mis täidab logi tabeli,
+CREATE TRIGGER AutoKustutamine
+ON logitabel
+FOR DELETE
+AS
+BEGIN
+	INSERT INTO autoregistr(kasutaja, aeg, numbrimark, varv, toiming, andmed)
+	SELECT USER,
+			GETDATE(),
+			'548 JKF',
+			'Must',
+			'linn on kustutatud',
+			deleted.autonimi
+	FROM deleted;
+END
+
+delete from linnad
+WHERE linnID=4;
+select * from linnad;
+select * from logi;
 
 
